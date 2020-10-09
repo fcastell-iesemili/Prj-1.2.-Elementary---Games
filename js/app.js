@@ -1,38 +1,39 @@
-//VARIABLES GENERALS USER
+//EVENT_LISTENER
+document.getElementById("btn-addGame").addEventListener("click", All_Functions);
+
 //----------------------------------------------------------------------
 
+//GAME_NAME
 let v_game_name = document.getElementById("game_name");
-let v_game_release = document.getElementById("game_release");
-let v_game_pegi = document.getElementById("game_pegi");
-let v_game_developer = document.getElementById("game_developer");
 
-//----------
+let v_game_relese = document.getElementById("game_release");
 
-let v_genre_select = document.getElementById("game_gnre").selectedIndex;
-let v_game_genre = (document.getElementsByTagName("option")[v_genre_select].value);
-
-//----------
-//----------
-
-let NewDate = new Date(v_game_release);
+let NewDate = new Date(v_game_relese);
 
 let Year = NewDate.getFullYear();
 let Month = NewDate.getMonth();
 let Day = NewDate.getDate();
 
-var Time = Day + "/" + Month + "/" + Year;
+let Time = Day + "/" + Month + "/" + Year;
 
+//GAME_RELEASE
 let v_game_release_time = Time;
 
-//----------
+//GAME_PGEI
+let v_game_pegi = document.getElementById("game_pegi");
 
-//----------------------------------------------------------------------
+//GAME_DEVELOPER
+let v_game_developer = document.getElementById("game_developer");
+
+
+//GAME_GENRE
+let v_genre_select = document.getElementById("game_gnre").selectedIndex;
+let v_game_genre = (document.getElementsByTagName("option")[v_genre_select].value);
+
 
 //FUNCTION TO ADD NEW GAME
 
 function Add_New_Game() {
-
-    let table = document.createElement('table');
 
     for (let i = 0; i < 1; i++) {
         let tr = document.createElement('tr');
@@ -45,18 +46,18 @@ function Add_New_Game() {
         let td6 = document.createElement('td');
 
         let text1 = document.createTextNode('#');
-        let text2 = document.createTextNode('v_game_name');
-        let text3 = document.createTextNode('v_game_release');
-        let text4 = document.createTextNode('v_game_pegi');
-        let text5 = document.createTextNode('v_game_developer');
-        let text6 = document.createTextNode('v_game_genre');
+        let text2 = document.createTextNode(v_game_name);
+        let text3 = document.createTextNode(v_game_developer);
+        let text4 = document.createTextNode(Time);
+        let text5 = document.createTextNode(v_game_pegi);
+        let text6 = document.createTextNode(v_game_genre);
 
-        td1.appendChild("#");
-        td2.appendChild(v_game_name);
-        td3.appendChild(v_game_developer);
-        td4.appendChild(v_game_release_time);
-        td5.appendChild(v_game_pegi);
-        td6.appendChild(v_game_genre);
+        td1.appendChild(text1);
+        td2.appendChild(text2);
+        td3.appendChild(text3);
+        td4.appendChild(text4);
+        td5.appendChild(text5);
+        td6.appendChild(text6);
 
         tr.appendChild(td1);
         tr.appendChild(td2);
@@ -65,9 +66,7 @@ function Add_New_Game() {
         tr.appendChild(td5);
         tr.appendChild(td6);
 
-        table.appendChild(tr);
-
-        table_games.appendChild(table);
+        table_games.appendChild(tr);
     }
 }
 
