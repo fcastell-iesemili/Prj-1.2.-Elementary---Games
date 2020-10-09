@@ -1,56 +1,38 @@
-//TOTAL VARIABLES
-//----------------------------------------------------------------------
+let v_game_name = document.getElementById("game_name");
 
-//GAME_NAME
-//----------------------------------------------------------------------
+let v_game_pegi = document.getElementById("game_pegi");
 
-let v_game_name = document.getElementById("game_name").value;
-//----------------------------------------------------------------------
+let v_game_developer = document.getElementById("game_developer");
 
-//GAME_RELEASE
-//----------------------------------------------------------------------
-
-let v_game_relese = document.getElementById("game_release").value;
-
-let NewDate = new Date(v_game_relese);
-
-let Year = NewDate.getFullYear();
-let Month = NewDate.getMonth();
-let Day = NewDate.getDate();
-
-let Time = Day + "/" + Month + "/" + Year;
-
-let v_game_release_time = Time;
-
-//----------------------------------------------------------------------
-
-//GAME_PGEI
-//----------------------------------------------------------------------
-
-let v_game_pegi = document.getElementById("game_pegi").value;
-
-//----------------------------------------------------------------------
-
-//GAME_DEVELOPE
-//----------------------------------------------------------------------
-
-let v_game_developer = document.getElementById("game_developer").value;
-
-//----------------------------------------------------------------------
-
-//GAME_GENRE
-//----------------------------------------------------------------------
-
-let v_genre_select = document.getElementById("game_gnre").selectedIndex;
-let v_game_genre = document.getElementsByTagName("option")[v_genre_select]
-  .value;
-
-//----------------------------------------------------------------------
 
 //FUNCTION TO ADD NEW GAME
 //----------------------------------------------------------------------
 
 function Add_New_Game() {
+
+  //----------
+
+  let v_genre_select = document.getElementById("game_gnre").selectedIndex;
+  let v_game_genre = document.getElementsByTagName("option")[v_genre_select].value;
+
+  //----------
+
+  //----------
+
+  let v_game_relese = document.getElementById("game_release").value;
+
+  let NewDate = new Date(v_game_relese);
+
+  let Year = NewDate.getFullYear();
+  let Month = NewDate.getMonth();
+  let Day = NewDate.getDate();
+
+  let Time = Day + "/" + Month + "/" + Year;
+
+  let v_game_release_time = Time;
+
+  //----------
+
   for (let i = 0; i < 1; i++) {
     let tr = document.createElement("tr");
 
@@ -62,10 +44,10 @@ function Add_New_Game() {
     let td6 = document.createElement("td");
 
     let text1 = document.createTextNode("#");
-    let text2 = document.createTextNode(v_game_name);
-    let text3 = document.createTextNode(v_game_developer);
+    let text2 = document.createTextNode(v_game_name.value);
+    let text3 = document.createTextNode(v_game_developer.value);
     let text4 = document.createTextNode(v_game_release_time);
-    let text5 = document.createTextNode(v_game_pegi);
+    let text5 = document.createTextNode(v_game_pegi.value);
     let text6 = document.createTextNode(v_game_genre);
 
     td1.appendChild(text1);
@@ -92,13 +74,18 @@ function Add_New_Game() {
 //-----------------------------------------------------------------------------------------------------------
 
 function Validate_Name_Game() {
-  if (v_game_name.length == 0) {
+
+  let v_game_name_v = document.getElementById("game_name").value;
+
+
+  if (v_game_name_v.length == 0) {
     alert("No has escrito nada en el nombre del juego");
 
     document.getElementById("game_name").focus();
 
     return callback(false);
-  } else {
+  }
+  else {
     return true;
   }
 }
@@ -109,13 +96,19 @@ function Validate_Name_Game() {
 //-----------------------------------------------------------------------------------------------------------
 
 function Validate_Pegi() {
-  if (v_game_pegi.length == 0 || v_game_pegi < 19) {
+
+  let v_game_pegi_age = document.getElementById("game_pegi").value;
+
+
+  if (v_game_pegi_age.length == 0 || v_game_pegi_age >= 19) {
     alert("Revisa el campo PEGI ");
 
     document.getElementById("game_pegi").focus();
 
     return callback(false);
-  } else {
+  }
+
+  else {
     return true;
   }
 }
@@ -126,7 +119,11 @@ function Validate_Pegi() {
 //-----------------------------------------------------------------------------------------------------------
 
 function Validate_Developer() {
-  if (v_game_developer.length == 0) {
+
+  let v_game_developer_v = document.getElementById("game_developer").value;
+
+
+  if (v_game_developer_v.length == 0) {
     alert("No has escrito nada en el campo 'Desenvolupador' ");
 
     document.getElementById("game_developer").focus();
@@ -142,7 +139,7 @@ function Validate_Developer() {
 //FUNCTION VALIDATION
 //-----------------------------------------------------------------------------------------------------------
 
-function All_Functions() {
+function Function_Games() {
   Validate_Name_Game();
   Validate_Pegi();
   Validate_Developer();
