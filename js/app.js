@@ -1,10 +1,25 @@
 //EVENT_LISTENER
+//----------------------------------------------------------------------
+
 document.getElementById("btn-addGame").addEventListener("click", All_Functions);
 
 //----------------------------------------------------------------------
 
+
+//----------------------------------------------------------------------
+
+//TOTAL VARIABLES
+//----------------------------------------------------------------------
+
 //GAME_NAME
+//----------------------------------------------------------------------
+
 let v_game_name = document.getElementById("game_name");
+
+//----------------------------------------------------------------------
+
+//GAME_RELEASE
+//----------------------------------------------------------------------
 
 let v_game_relese = document.getElementById("game_release");
 
@@ -16,22 +31,37 @@ let Day = NewDate.getDate();
 
 let Time = Day + "/" + Month + "/" + Year;
 
-//GAME_RELEASE
 let v_game_release_time = Time;
 
+//----------------------------------------------------------------------
+
 //GAME_PGEI
+//----------------------------------------------------------------------
+
 let v_game_pegi = document.getElementById("game_pegi");
 
-//GAME_DEVELOPER
+//----------------------------------------------------------------------
+
+
+//GAME_DEVELOPE
+//----------------------------------------------------------------------
+
 let v_game_developer = document.getElementById("game_developer");
+
+//----------------------------------------------------------------------
 
 
 //GAME_GENRE
+//----------------------------------------------------------------------
+
 let v_genre_select = document.getElementById("game_gnre").selectedIndex;
 let v_game_genre = (document.getElementsByTagName("option")[v_genre_select].value);
 
+//----------------------------------------------------------------------
+
 
 //FUNCTION TO ADD NEW GAME
+//----------------------------------------------------------------------
 
 function Add_New_Game() {
 
@@ -48,7 +78,7 @@ function Add_New_Game() {
         let text1 = document.createTextNode('#');
         let text2 = document.createTextNode(v_game_name);
         let text3 = document.createTextNode(v_game_developer);
-        let text4 = document.createTextNode(Time);
+        let text4 = document.createTextNode(v_game_release_time);
         let text5 = document.createTextNode(v_game_pegi);
         let text6 = document.createTextNode(v_game_genre);
 
@@ -70,9 +100,7 @@ function Add_New_Game() {
     }
 }
 
-
-// Checks data from the form fields
-//-----------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------
 
 
 //VALIDATE NAME
@@ -99,6 +127,7 @@ function Validate_Name_Game() {
 
 //VALIDATE +18 (PEGI)
 //-----------------------------------------------------------------------------------------------------------
+
 function Validate_Pegi() {
 
     if (v_game_pegi.length == 0 || v_game_pegi <= 18) {
