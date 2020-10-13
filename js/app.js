@@ -1,8 +1,6 @@
+import { Validate_Name_Game, Validate_Pegi, Validate_Developer } from "./Validate.js";
 import { Add_New_Game } from "./New_Game.js";
-import { Validations } from "./Validations.js";
 
-//STATIC GAMES
-//--------------------------------------------------
 
 const saved_games = [["Star Wars Jedi Fallen Order", "Five Start Studio", "12/12/2019", "16", "action"],
 ["Terminator", "Marvel Studio", "12/12/2019", "16", "action"],
@@ -52,13 +50,13 @@ for (i = 0; i < saved_games.length; i++) {
 
     table_games.appendChild(tr);
   }
+
 }
 
 
-//--------------------------------------------------
-
-
 document.getElementById("btn-addGame").addEventListener("click", function () {
-  Validations();
+  Validate_Name_Game();
+  Validate_Pegi();
+  Validate_Developer();
   Add_New_Game();
 });
